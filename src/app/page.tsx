@@ -1,19 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import { useSession, signIn } from "next-auth/react";
-import { useAppDispatch, useAppSelector } from "./hooks/useAppDispatch";
+import { useAppDispatch } from "./hooks/useAppDispatch";
 import { slices } from "@/lib";
 import { useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Button from "@/components/common/button/Button";
-import useIsMobile from "./hooks/useIsMobile";
 
 export default function Home() {
   const { status, data } = useSession();
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const isMobile = useIsMobile()
 
   useEffect(() => {
     if (status === "authenticated" && data.user) {
