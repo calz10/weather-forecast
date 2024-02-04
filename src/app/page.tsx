@@ -22,9 +22,9 @@ export default function Home() {
     } else {
       router.replace("/");
     }
-  }, [status, router, data]);
+  }, [status, router, data, dispatch]);
 
-  const handleLogin = useCallback(() => signIn("github"), [signIn]);
+  const handleLogin = useCallback(() => signIn("github"), []);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">

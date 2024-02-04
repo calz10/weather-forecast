@@ -14,14 +14,14 @@ export const WeatherTable = ({ renderItems, onBack }: WeatherTableProps) => {
         <thead>
           <tr>
             {renderItems.map((h) => (
-              <th className="border border-emerald-500 px-4 py-2 text-emerald-600">{h.label}</th>
+              <th className="border border-emerald-500 px-4 py-2 text-emerald-600" key={h.label}>{h.label}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           <tr>
             {renderItems.map((h) => (
-              <td className="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">
+              <td className="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium" key={h.label}>
                 {String(h.value)}
               </td>
             ))}

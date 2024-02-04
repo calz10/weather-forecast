@@ -27,7 +27,7 @@ export default function Home() {
     } finally {
       setLoading(false);
     }
-  }, [dispatch, city]);
+  }, [dispatch, city, router]);
 
   return (
     <div>

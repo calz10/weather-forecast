@@ -71,7 +71,6 @@ function Button(props: ButtonProps | ButtonLinkProps) {
     fullWidth,
     className,
     disabled,
-    align,
   ]);
 
   return (
