@@ -8,6 +8,29 @@ const handler = NextAuth({
       clientSecret: process.env.NEXT_PUBLIC_GITHUB_CLIENT_SECRET ?? "",
     }),
   ],
+  callbacks: {
+    async jwt({ token, profile }: any) {
+      if (profile?.html_url) {
+        return {
+          ...token,
+          githubProfile: profile.html_url,
+        };
+      }
+
+      return token;
+    },
+    async session({ token, session }) {
+      if (token.githubProfile) {
+        if (session.user) {
+          session.user = {
+            ...session.user,
+            githubProfile: token.githubProfile,
+          } as any;
+        }
+      }
+      return session;
+    },
+  },
   secret: process.env.NEXTAUTH_SECRET,
 });
 
