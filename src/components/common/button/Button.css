@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  /* Base Button Styles */
+  .btn {
+    @apply flex-none flex w-fit justify-center items-center gap-1 px-3 py-1.5 text-sm font-semibold shadow-sm rounded bg-gray-300 text-gray-900;
+
+    /* dark mode and button states hover, focus etc. */
+    @apply dark:bg-gray-200 dark:hover:bg-gray-300 dark:focus:bg-gray-400 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-400 focus:bg-gray-500;
+  }
+  .btn:disabled:hover{ 
+    @apply bg-gray-300;
+  }
+
+  .btn-outlined {
+    @apply bg-transparent ring-1 ring-inset ring-gray-300 hover:bg-gray-300/10 focus:bg-gray-300/20;
+
+    /* dark mode and button states hover, focus etc. */
+    @apply dark:bg-transparent dark:text-white dark:hover:bg-gray-200/20 dark:focus:bg-gray-300/30
+  }
+
+  .btn-text {
+    @apply bg-transparent dark:bg-transparent dark:text-white dark:hover:bg-gray-300/30 dark:focus:bg-gray-300/40 hover:bg-gray-300/10 focus:bg-gray-300/20 shadow-none;
+  }
+
+  .btn-link {
+    @apply bg-transparent dark:text-white dark:hover:decoration-white underline underline-offset-4 decoration-transparent hover:decoration-gray-900 hover:bg-transparent shadow-none cursor-pointer;
+  }
+
+  /* Button Contained  */
+  
+  .btn-primary {
+    @apply text-white bg-primary hover:bg-primary-600 focus:bg-primary-700 focus-visible:outline-primary ring-primary;
+    
+    /* dark mode */
+    @apply dark:bg-primary-400 dark:hover:bg-primary-500 dark:focus:bg-primary-600
+  }
+  .btn-primary:disabled:hover {
+    @apply bg-primary dark:bg-primary-400
+  }
+
+  .btn-secondary {
+    @apply text-white bg-secondary hover:bg-secondary-600 focus:bg-secondary-700 focus-visible:outline-secondary-600 ring-secondary;
+    
+    /* dark mode */
+    @apply dark:bg-secondary-400 dark:hover:bg-secondary-500 dark:focus:bg-secondary-600
+  }
+  .btn-secondary:disabled:hover {
+    @apply bg-secondary dark:bg-secondary-400;
+  }
+
+  .btn-info {
+    @apply text-white bg-info hover:bg-info-600 focus:bg-info-700 focus-visible:outline-info-600 ring-info;
+    
+    /* dark mode */
+    @apply dark:bg-info-400 dark:hover:bg-info-500 dark:focus:bg-info-600
+  }
+  .btn-info:disabled:hover {
+    @apply bg-info dark:bg-info-400;
+  }
+
+  .btn-success {
+    @apply text-white bg-success hover:bg-success-600 focus:bg-success-700 focus-visible:outline-success-600 ring-success;
+    
+    /* dark mode */
+    @apply dark:bg-success-400 dark:hover:bg-success-500 dark:focus:bg-success-600
+  }
+  .btn-success:disabled:hover {
+    @apply bg-success dark:bg-success-400;
+  }
+
+  .btn-warning {
+    @apply text-white bg-warning hover:bg-warning-600 focus:bg-warning-700 focus-visible:outline-warning-600 ring-warning;
+    
+    /* dark mode */
+    @apply dark:bg-warning-400 dark:hover:bg-warning-500 dark:focus:bg-warning-600
+  }
+  .btn-warning:disabled:hover {
+    @apply bg-warning dark:bg-warning-400;
+  }
+
+  .btn-error {
+    @apply text-white bg-error hover:bg-error-600 focus:bg-error-700 focus-visible:outline-error-600 ring-error;
+    /* dark mode */
+    @apply dark:bg-error-400 dark:hover:bg-error-500 dark:focus:bg-error-600
+  }
+  .btn-error:disabled:hover {
+    @apply bg-error dark:bg-error-400;
+  }
+
+  
+  /* Button Outlined */
+
+  /* change the background into transparent when the button is disabled and hovered */
+  :is(.btn-outlined, .btn-outlined-primary, .btn-outlined-secondary, .btn-outlined-info, .btn-outlined-success, .btn-outlined-warning, .btn-outlined-error):disabled:hover {
+    @apply bg-transparent dark:bg-transparent;
+  }
+
+  /* Remove background on dark mode */
+  .dark :is(.btn-outlined, .btn-outlined-primary, .btn-outlined-secondary, .btn-outlined-info, .btn-outlined-success, .btn-outlined-warning, .btn-outlined-error) {
+    @apply bg-transparent;
+  }
+  
+  .btn-outlined-primary {
+    @apply bg-transparent hover:bg-primary/10 focus:bg-primary/20 focus-visible:outline-primary ring-1 ring-inset ring-primary text-primary;
+    /* dark mode */
+    @apply dark:ring-primary-400 dark:text-primary-300 dark:hover:bg-primary/20 dark:focus:bg-primary/30
+  }
+
+  .btn-outlined-secondary {
+    @apply bg-transparent hover:bg-secondary/10 focus:bg-secondary/20 focus-visible:outline-secondary ring-1 ring-inset ring-secondary text-secondary;
+    /* dark mode */
+    @apply dark:ring-secondary-400 dark:text-secondary-300 dark:hover:bg-secondary-400/20 dark:focus:bg-secondary-400/30 
+  }
+
+  .btn-outlined-info {
+    @apply bg-transparent hover:bg-info/10 focus:bg-info/20 focus-visible:outline-info ring-1 ring-inset ring-info text-info;
+    /* dark mode */
+    @apply dark:ring-info-400 dark:text-info-300 dark:hover:bg-info-400/20 dark:focus:bg-info-400/30
+  }
+
+  .btn-outlined-success {
+    @apply bg-transparent hover:bg-success/10 focus:bg-success/20 focus-visible:outline-success ring-1 ring-inset ring-success text-success;
+    /* dark mode */
+    @apply dark:ring-success-400 dark:text-success-300 dark:hover:bg-success-400/20 dark:focus:bg-success-400/30
+  }
+
+  .btn-outlined-warning {
+    @apply bg-transparent hover:bg-warning/10 focus:bg-warning/20 focus-visible:outline-warning ring-1 ring-inset ring-warning text-warning;
+    /* dark mode */
+    @apply dark:ring-warning-400 dark:text-warning-300 dark:hover:bg-warning-400/20 dark:focus:bg-warning-400/30
+  }
+
+  .btn-outlined-error {
+    @apply bg-transparent hover:bg-error/10 focus:bg-error/20 focus-visible:outline-error ring-1 ring-inset ring-error text-error;
+    /* dark mode */
+    @apply dark:ring-error-400 dark:text-error-300 dark:hover:bg-error-400/20 dark:focus:bg-error-400/30
+  }
+
+
+  /* Button Text */
+
+  /* change the background into transparent when the button is disabled and hovered */
+  :is(.btn-text, .btn-text-primary, .btn-text-secondary, .btn-text-info, .btn-text-success, .btn-text-warning, .btn-text-error):disabled:hover {
+    @apply bg-transparent dark:hover:bg-transparent;
+  }
+  .btn-text-primary {
+    @apply bg-transparent dark:bg-transparent hover:bg-primary/10 focus:bg-primary/20  focus-visible:outline-primary text-primary shadow-none;
+    /* dark mode */
+    @apply dark:bg-transparent dark:text-primary dark:hover:bg-primary-300/30 dark:focus:bg-primary-300/40;
+  }
+
+  .btn-text-secondary {
+    @apply bg-transparent dark:bg-transparent hover:bg-secondary/10 focus:bg-secondary/20 focus-visible:outline-secondary text-secondary shadow-none;
+    /* dark mode */
+    @apply dark:bg-transparent dark:text-secondary-300 dark:hover:bg-secondary-300/30 dark:focus:bg-secondary-300/40;
+  }
+
+  .btn-text-info {
+    @apply bg-transparent dark:bg-transparent hover:bg-info/10 focus:bg-info/20 focus-visible:outline-info text-info shadow-none;
+    /* dark mode */
+    @apply dark:bg-transparent dark:text-info dark:hover:bg-info-300/30 dark:focus:bg-info-300/40;
+  }
+
+  .btn-text-success {
+    @apply bg-transparent dark:bg-transparent hover:bg-success/10 focus:bg-success/20 focus-visible:outline-success text-success shadow-none;
+    /* dark mode */
+    @apply dark:bg-transparent dark:text-success dark:hover:bg-success-300/30 dark:focus:bg-success-300/40;
+  }
+
+  .btn-text-warning {
+    @apply bg-transparent dark:bg-transparent hover:bg-warning/10 focus:bg-warning/20 focus-visible:outline-warning text-warning shadow-none;
+    /* dark mode */
+    @apply dark:bg-transparent dark:text-warning dark:hover:bg-warning-300/30 dark:focus:bg-warning-300/40;
+  }
+
+  .btn-text-error {
+    @apply bg-transparent dark:bg-transparent hover:bg-error/10 focus:bg-error/20 focus-visible:outline-error text-error shadow-none;
+    /* dark mode */
+    @apply dark:bg-transparent dark:text-error dark:hover:bg-error-300/30 dark:focus:bg-error-300/40;
+  }
+
+
+  /* Button Link */
+
+  /* change the background into transparent when the button is disabled and hovered */
+  .btn-link-disabled {
+    @apply opacity-30 pointer-events-none cursor-not-allowed select-none no-underline decoration-transparent hover:no-underline selection:decoration-lime-500 focus:no-underline focus:decoration-blue-700;
+  }
+
+  /* dark mode */
+  .dark :is(.btn-link, .btn-link-disabled, .btn-link-primary, .btn-link-secondary, .btn-link-info, .btn-link-success, .btn-link-warning, .btn-link-error) {
+    @apply bg-transparent hover:bg-transparent hover:decoration-current;
+  }
+
+  .btn-link-primary {
+    @apply btn-link dark:text-primary hover:decoration-primary focus-visible:outline-secondary text-primary shadow-none;
+  }
+
+  .btn-link-secondary {
+    @apply btn-link dark:text-secondary-300 dark:hover:decoration-secondary-300 hover:decoration-secondary focus-visible:outline-secondary text-secondary shadow-none;
+  }
+
+  .btn-link-info {
+    @apply btn-link dark:text-info hover:decoration-info focus-visible:outline-info text-info shadow-none;
+  }
+
+  .btn-link-success {
+    @apply btn-link dark:text-success hover:decoration-success focus-visible:outline-success text-success shadow-none;
+  }
+
+  .btn-link-warning {
+    @apply btn-link dark:text-warning hover:decoration-warning focus-visible:outline-warning text-warning shadow-none;
+  }
+
+  .btn-link-error {
+    @apply btn-link dark:text-error hover:decoration-error focus-visible:outline-error text-error shadow-none;
+  }
+}

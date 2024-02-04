@@ -6,18 +6,18 @@ import { useAppDispatch, useAppSelector } from "./hooks/useAppDispatch";
 import { slices } from "@/lib";
 import { useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Button from "@/components/common/button/Button";
+import useIsMobile from "./hooks/useIsMobile";
 
 export default function Home() {
   const { status, data } = useSession();
   const router = useRouter();
-  const userState = useAppSelector(slices.user.selectors.selectCurrentUser);
   const dispatch = useAppDispatch();
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     if (status === "authenticated" && data.user) {
-      dispatch(
-        slices.user.actions.setUser(data.user)
-      )
+      dispatch(slices.user.actions.setUser(data.user));
       router.replace("/home");
     } else {
       router.replace("/");
@@ -28,11 +28,16 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        Welcome to the weather forecast web application, Please login with your
-        Github user to use the application and view the weather in your city
+      <div className="w-full md:w-1/2">
+        <div className="pb-10">
+          Welcome to the weather forecast web application, Please login with
+          your Github user to use the application and view the weather in your
+          city
+        </div>
+        <Button onClick={handleLogin} color="primary">
+          Login
+        </Button>
       </div>
-      <div onClick={handleLogin}>Login</div>
     </main>
   );
 }
